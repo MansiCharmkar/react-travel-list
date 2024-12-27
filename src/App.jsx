@@ -3,15 +3,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ItemList from "./components/ItemList";
 import "./index.css";
-
 const appStyle = {
     height: "100vh",
     display: "grid",
     gridTemplateColumns: "1fr",
-    gridTemplateRows: "7rem 2rem 1fr 2rem",
+    gridTemplateRows: "7rem 5rem 1fr 2rem",
 };
-
-const App = () => {
+function App() {
     return (
         <div style={appStyle}>
             <Header />
@@ -20,6 +18,5 @@ const App = () => {
             <Footer />
         </div>
     );
-};
-
+}
 export default App;
