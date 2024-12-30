@@ -14,11 +14,40 @@ const appStyle = {
 };
 function App() {
     const [items, setItems] = useState({});
+
+    function addItem(item) {
+        setItems(function (items) {
+            items[item.name] = item;
+
+            return { ...items };
+        });
+    }
+
+    function updateItem(nameKey, packed) {
+        setItems(function (items) {
+            items[nameKey].packed = packed;
+            return { ...items };
+        });
+    }
+
+    function deleteItem(nameKey) {
+        setItems(function (items) {
+            delete items[nameKey];
+            return { ...items };
+        });
+    }
+
+    // prop drilling
+    // App -> ItemList -> Item
     return (
         <div style={appStyle}>
             <Header />
-            <AddItem setItems={setItems} />
-            <ItemList items={Object.values(items)} />
+            <AddItem addItem={addItem} />
+            <ItemList
+                updateItem={updateItem}
+                deleteItem={deleteItem}
+                items={Object.values(items)}
+            />
             <Filter />
             <Footer />
         </div>

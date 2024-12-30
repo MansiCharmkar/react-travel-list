@@ -3,7 +3,7 @@ import styles from "../styles/AddItem.module.css";
 import Emoji from "./Emoji";
 
 function AddItem(props) {
-    const { setItems } = props;
+    const { addItem } = props;
     const [item, setItem] = useState({ packed: false, count: 1, name: "" });
 
     function hadleCountChange(e) {
@@ -19,10 +19,8 @@ function AddItem(props) {
         if (item.name === "") return;
 
         // add item to items
-        setItems(function (items) {
-            items[item.name] = item;
-            return { ...items };
-        });
+        addItem(item);
+
         // reset item
         setItem({ packed: false, count: 1, name: "" });
     }
