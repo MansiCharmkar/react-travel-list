@@ -13,12 +13,12 @@ const appStyle = {
     gridTemplateRows: "7rem 5rem 1fr 4rem auto",
 };
 function App() {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState({});
     return (
         <div style={appStyle}>
             <Header />
             <AddItem setItems={setItems} />
-            <ItemList items={items} />
+            <ItemList items={Object.values(items)} />
             <Filter />
             <Footer />
         </div>
